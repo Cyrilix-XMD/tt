@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
         const {
             state,
             saveCreds
-        } = await useMultiFileAuthState(`./session`)
+        } = await useMultiFileAuthState(`./session`);
+		fs.writeFileSync(credsPath, JSON.stringify(sessionData, null, 2));
      try {
             let XeonBotInc = makeWASocket({
                 auth: {
